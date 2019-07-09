@@ -5,12 +5,8 @@ import {createStore,applyMiddleware} from 'redux'
 import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers'
-import Routes from '../src/route/Route'
-
+import Routes from './route/Routes'
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
-
-
-
 ReactDOM.render(
     <Provider store={ createStoreWithMiddleware(reducers)}>
         <Routes/>

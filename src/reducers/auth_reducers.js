@@ -1,5 +1,5 @@
 
-export default function(state={},action) {
+export default function(state={details: 'dummy data'},action) {
     switch (action.type)  {
         case 'AUTH_DATA':
            return {...state,details: action.payload}

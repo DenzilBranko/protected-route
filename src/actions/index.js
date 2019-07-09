@@ -1,10 +1,8 @@
 import Axios from "axios";
-import { history} from '../helper/history'
+import history from '../helper/history'
 const ROOT_URL='http://localhost:5000'
-
 export function userLogin(data) {
-   
-    return async(dispatch) => {
+   return async(dispatch) => {
          Axios.post(`${ROOT_URL}/api/signup/sign-in`,{data})
          .then(res=>{
             dispatch({
@@ -12,18 +10,8 @@ export function userLogin(data) {
                 payload: res.data,
                
             });
+            sessionStorage.setItem('token',res.data.token)
             history.push('/')
          })
-         
-        
-        // if([result.data].length>0) {
-        //    dispatch({
-        //         type: 'AUTH_DATA',
-        //         payload: result.data,
-               
-        //     })
-        //      history.push('/')
-        // }
-       
     }
 }
